@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import FacebookLogin from "react-facebook-login";
-import { useParams, useNavigate, Navigate   } from 'react-router-dom'
+import { Navigate   } from 'react-router-dom'
 
 class Login extends Component {
     constructor(props) {
@@ -44,7 +44,7 @@ class Login extends Component {
 
     } else {
         content = (
-        <div>
+        <div className="m-5">
             <h1>Please Login With Facebook</h1>
             <FacebookLogin
             appId="1024089265192073"

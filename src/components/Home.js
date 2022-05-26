@@ -1,6 +1,6 @@
-import React, { Component, useState } from "react";
-// import JobList from "./JobsList";
-// import SearchResult from "./SearchResult";
+import React, { Component } from "react";
+import JobList from "./JobList";
+import SearchResult from "./SearchResult";
 
 class Home extends Component {
     state = {
@@ -17,11 +17,11 @@ class Home extends Component {
 
         this.setState({['isSearch']: true});
 
-        if(descInput == "" && locInput == ""){
+        if(descInput === "" && locInput === ""){
             this.setState({['isSearch']: false});
         }
 
-        console.log(this.state);
+        // console.log(this.state);
     }
     
 
@@ -32,20 +32,18 @@ class Home extends Component {
             
                 <div className="form-field d-flex">
                 
-                    <div className="mb-3">
-                        <label htmlFor="descInput" className="form-label">Job Description</label>
+                    <div className="mb-3 m-3">
+                        <label htmlFor="descInput" className="form-label"><strong>Job Description</strong></label>
                         <input type="text" className="form-control" id="descInput" size="50"
-                            // onChange={(e) => this.setDesc(e.target.value)} 
-                            placeholder="Filter by title, benefite, companies, expertise"></input>
+                            placeholder="Filter by title, benefits, companies, expertise"></input>
                     </div>
-                    <div className="mb-3">
-                        <label htmlFor="locInput" className="form-label">Location</label>
+                    <div className="mb-3 m-3">
+                        <label htmlFor="locInput" className="form-label"><strong>Location</strong></label>
                         <input type="text" className="form-control" size="50" id="locInput" 
-                            // onChange={(e) => this.setLoc(e.target.value)} 
-                            placeholder="Filter by title, benefite, companies, expertise"></input>
+                            placeholder="Filter by city, state, zip code or country"></input>
                     </div>
                     <div className="btn-search">
-                        <button className="btn btn-primary" type="submit" onClick={() => this.SearchJob()}>Search</button>
+                        <button className="btn btn-secondary" type="submit" onClick={() => this.SearchJob()}>Search</button>
                     </div>
                 
                 </div>
@@ -54,17 +52,15 @@ class Home extends Component {
 
         if(this.state.isSearch){
             content2 = (
-                <div>
-                    <p>Hai</p>
-                    {/* <SearchResult descQuery={this.state.descQuery} locQuery={this.state.locQuery}/> */}
+                <div className="border mx-3 p-3">
+                    <SearchResult descQuery={this.state.descQuery} locQuery={this.state.locQuery}/>
                 </div>
             )
 
         } else {
             content2 = (
-                <div>
-                    <p>Halo</p>
-                    {/* <JobList/> */}
+                <div className="border mx-3 p-3">
+                    <JobList/>
                 </div>
             )
             
@@ -74,7 +70,7 @@ class Home extends Component {
         return (
             <div>
                 {content}
-                <div>
+                <div className="job-list">
                 {content2}
                 </div>
             </div>

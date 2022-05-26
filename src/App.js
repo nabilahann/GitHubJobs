@@ -6,6 +6,7 @@ import JobDetail from './components/JobDetail';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
+  
   return (
     <div className="App">
       <nav className="navbar">

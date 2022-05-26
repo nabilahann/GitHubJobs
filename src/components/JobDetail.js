@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate  } from 'react-router-dom'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 import axios from 'axios';
 import Loader from "./Loader";
 
@@ -54,12 +54,15 @@ function JobDetail() {
     if(job.data != null){
         // console.log(job.data.length)
         content = 
-        <div className="job-detail">
-            <p>{job.data.type}/{job.data.location}</p>
-            <h1 className="text-2xl font-bold mb-3">
-                {job.data.title}
-            </h1>
-            <div>
+        <div className="job-detail border p-3">
+            <div className="border-bottom">
+                <p className="text-muted mb-0 ml-5">{job.data.type}/{job.data.location}</p>
+                <h1 className="text-2xl font-bold mb-3 mt-0">
+                    {job.data.title}
+                </h1>
+            </div>
+            
+            <div className="p-3">
                 <img
                     src={job.data.company_logo}
                     alt={job.data.name}
@@ -79,8 +82,14 @@ function JobDetail() {
     return (
         
         <div className="container mx-auto">
-            <div className="btn-back mx-auto">
-                <button onClick={() => navigate('/')}>Back</button>
+            <div className="btn-back mx-auto pt-3">
+                {/* <button onClick={() => navigate('/')}>Back</button> */}
+                <Link to={`/`} className="text-decoration-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                    </svg>
+                    <strong> Back</strong>
+                </Link>
             </div>
             {content}
         </div>
