@@ -1,3 +1,8 @@
+# How To Use
+Saat pertama kali meng-clone project ini, jalankan command "npm install react-scripts --save" pada terminal untuk menginstall file node module
+
+Selanjutnya, jalankan command "npm start" pada terminal. Kemudian aplikasi akan terbuka pada link http://localhost:3000 di browser Anda.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
