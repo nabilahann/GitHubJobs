@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 function JobHolder(props){
     return (
-        <div className="border-top border-bottom mb-4 overflow-hidden">
+        <div className="border-top overflow-hidden ">
             <Link to={`/detail/${props.job.id}`}
                 className="text-decoration-none"
             >

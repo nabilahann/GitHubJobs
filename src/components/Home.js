@@ -28,7 +28,7 @@ class Home extends Component {
 
     render() {
         //kalo belum login di bakalan direct ke page login
-        if(this.props.login == false){
+        if(this.props.login === false){
             return <Navigate to="/login" push={true} />
         }
 
@@ -65,7 +65,7 @@ class Home extends Component {
 
         } else {
             content2 = (
-                <div className="border mx-3 p-3">
+                <div className="border mx-3 p-3 shadow mb-5 bg-body rounded">
                     <JobList/>
                 </div>
             )

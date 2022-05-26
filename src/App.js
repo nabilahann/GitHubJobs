@@ -4,7 +4,7 @@ import Login from './components/Login';
 import Home from './components/Home';
 import JobDetail from './components/JobDetail';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 function App() {
   const [login, setLogin] = useState(false);
