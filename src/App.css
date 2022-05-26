@@ -7,10 +7,6 @@
   color: white;
 }
 
-/* .mb-3{
-  margin: 10px;
-} */
-
 .form-field{
   text-align: left;
 }
@@ -19,8 +15,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 50px;
-  margin-top: 25px;
+  margin-left: 30px;
+  margin-right: 3px;
+  margin-top: 27px;
 }
 
 .job-detail{

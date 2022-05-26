@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import JobList from "./JobList";
 import SearchResult from "./SearchResult";
+import { Navigate   } from 'react-router-dom'
 
 class Home extends Component {
     state = {
@@ -26,6 +27,11 @@ class Home extends Component {
     
 
     render() {
+        //kalo belum login di bakalan direct ke page login
+        if(this.props.login == false){
+            return <Navigate to="/login" push={true} />
+        }
+
         let content;
         let content2;
         content = (
@@ -42,7 +48,7 @@ class Home extends Component {
                         <input type="text" className="form-control" size="50" id="locInput" 
                             placeholder="Filter by city, state, zip code or country"></input>
                     </div>
-                    <div className="btn-search">
+                    <div className="btn-search mr-5">
                         <button className="btn btn-secondary" type="submit" onClick={() => this.SearchJob()}>Search</button>
                     </div>
                 

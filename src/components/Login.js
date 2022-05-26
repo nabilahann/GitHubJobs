@@ -23,6 +23,10 @@ class Login extends Component {
 //     picture: ""
 //   };
 
+  handleLoginStateChange = (newValue) => {
+    this.props.onLoginStateChange(newValue)
+  }
+
   responseFacebook = response => {
 
     this.setState({
@@ -40,6 +44,7 @@ class Login extends Component {
     let content;
 
     if (this.state.isLoggedIn) {
+        this.handleLoginStateChange(true);
         return <Navigate to="/" push={true} />
 
     } else {

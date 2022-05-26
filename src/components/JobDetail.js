@@ -3,7 +3,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom'
 import axios from 'axios';
 import Loader from "./Loader";
 
-function JobDetail() {
+function JobDetail(props) {
     const { id } = useParams()
     const url = `http://dev3.dansmultipro.co.id/api/recruitment/positions/${id}`
     const navigate = useNavigate();
@@ -12,6 +12,11 @@ function JobDetail() {
         data: null,
         error: false
     });
+
+    //kalo belum login di bakalan direct ke page login
+    if(props.login == false){
+        navigate('/login', { replace: true })
+    }
 
     useEffect(() => {
         setJob({
@@ -62,13 +67,26 @@ function JobDetail() {
                 </h1>
             </div>
             
-            <div className="p-3">
-                <img
-                    src={job.data.company_logo}
-                    alt={job.data.name}
-                />
+            
+            <div className="d-flex">
+                <div className="col-8 pt-3" dangerouslySetInnerHTML={{__html: job.data.description}} />
+                <div className="col-4">
+                    <div className="m-3 p-3 border">
+                    <h4 className="border-bottom pb-3">{job.data.company}</h4>
+                        <img
+                            src={job.data.company_logo}
+                            alt={job.data.name}
+                        />
+                        <br/>
+                        <a href={job.data.company_url}>{job.data.company_url}</a>
+                    </div>
+                    <div className="m-3 p-3 border">
+                        <h4 className="border-bottom pb-3">How To Apply</h4>
+                        <div dangerouslySetInnerHTML={{__html: job.data.how_to_apply}} />
+                    </div>
+                </div>
             </div>
-            <div dangerouslySetInnerHTML={{__html: job.data.description}} />
+            
         </div>
     } else {
         content = 
@@ -81,9 +99,8 @@ function JobDetail() {
 
     return (
         
-        <div className="container mx-auto">
-            <div className="btn-back mx-auto pt-3">
-                {/* <button onClick={() => navigate('/')}>Back</button> */}
+        <div className="mx-3">
+            <div className="btn-back mx-3 pt-3">
                 <Link to={`/`} className="text-decoration-none">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>

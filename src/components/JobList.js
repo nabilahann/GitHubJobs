@@ -27,6 +27,7 @@ function JobList() {
     return (
         <>
         <h3 className="font-bold text-xl mb-3">Job List</h3>
+        
         {jobs.map((job, index) => {
             if(job != null){
                 if (jobs.length === index + 1) {
@@ -49,9 +50,7 @@ function JobList() {
             }
             
         })}
-        <div>{loading && 'Loading...'}
-            
-        </div>
+        <div>{loading && 'Loading...' }</div>
         <div>{error && 'Error'}</div>
         </>
     )
