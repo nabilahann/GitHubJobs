@@ -41,6 +41,12 @@ class Login extends Component {
   componentClicked = () => console.log("clicked");
 
   render() {
+    // kalo status login sudah true, maka akan direct ke halaman utama
+    if(JSON.parse(localStorage.getItem('login'))){
+        return <Navigate to="/" push={true} />
+    }
+
+
     let content;
 
     if (this.state.isLoggedIn) {

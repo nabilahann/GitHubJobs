@@ -34,3 +34,12 @@
 .job-list{
   text-align: left;
 }
+
+.more-btn{
+  background-color: #4b90c4;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  height: 40px;
+}

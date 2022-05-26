@@ -13,6 +13,9 @@ function JobDetail(props) {
         error: false
     });
 
+    var date=Date().toLocaleString(); 
+    console.log(date);
+
     //kalo belum login di bakalan direct ke page login
     if(props.login === false){
         navigate('/login', { replace: true })
@@ -72,16 +75,16 @@ function JobDetail(props) {
                 <div className="col-8 pt-3" dangerouslySetInnerHTML={{__html: job.data.description}} />
                 <div className="col-4">
                     <div className="m-3 p-3 border shadow mb-5 bg-body rounded">
-                        <h4 className="border-bottom pb-3">{job.data.company}</h4>
+                        <h5 className="border-bottom pb-3">{job.data.company}</h5>
                         <img
                             src={job.data.company_logo}
-                            alt={job.data.name}
+                            alt="company logo"
                         />
                         <br/>
                         <a href={job.data.company_url}>{job.data.company_url}</a>
                     </div>
                     <div className="m-3 p-3 border shadow mb-5 bg-body rounded">
-                        <h4 className="border-bottom pb-3">How To Apply</h4>
+                        <h5 className="border-bottom pb-3">How to apply</h5>
                         <div dangerouslySetInnerHTML={{__html: job.data.how_to_apply}} />
                     </div>
                 </div>
